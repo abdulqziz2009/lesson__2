@@ -1,17 +1,36 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Figure[] figures = new Figure[6];
+        figures[0] = new Circle("Круг1");
+        figures[1] = new Triangle("Треугольник1");
+        figures[2] = new Square("Квадрат1");
+        figures[3] = new Rectangle("Прямоугольник1");
+        figures[4] = createObject("SecondClass");
+        figures[5] = createObject("ThirdClass");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        for (Figure figure : figures) {
+            System.out.println("Название: " + figure.getName());
+            System.out.println("Рисунок: " + figure.draw());
+            System.out.println("Периметр: " + figure.calculatePerimeter());
+        }
+    }
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+    public static Figure createObject(String className) {
+        switch (className) {
+            case "SecondClass":
+                return new SecondClass();
+            case "ThirdClass":
+                return new ThirdClass();
+            case "FourthClass":
+                return new FourthClass() {
+                    @Override
+                    public void print() {
+
+                    }
+                };
+            default:
+                throw new IllegalArgumentException("Недопустимое название класса");
         }
     }
 }
+
