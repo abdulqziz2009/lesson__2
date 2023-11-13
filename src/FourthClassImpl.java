@@ -1,2 +1,6 @@
-package PACKAGE_NAME;public class FourthClassImpl {
+public class FourthClassImpl extends FourthClass {
+    @Override
+    public void print() {
+
+    }
 }
