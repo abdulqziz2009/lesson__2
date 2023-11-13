@@ -1,2 +1,4 @@
-package PACKAGE_NAME;public interface Printebl {
+interface Printable {
+    void print();
 }
+
